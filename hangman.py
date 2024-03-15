@@ -50,7 +50,7 @@ def hangman():
     '''A simple hangman game.'''
     while True:
         word = choice(words)
-        number_of_guesses = len(word) + 5
+        number_of_guesses = 5
         hidden_word = '_ ' * len(word)
         print('Guess the word!')
 
@@ -71,10 +71,10 @@ def hangman():
                     f'\nGreat, there are {number_guessed} letters "{guessed_letter}" in this word!')
             else:
                 print(f'\nNope, no letter "{guessed_letter}" here.')
+                number_of_guesses -= 1
 
             hidden_word = update_hidden_word(
                 word, guessed_letter, hidden_word)
-            number_of_guesses -= 1
 
             if check_game_status(word, hidden_word, number_of_guesses):
                 break
